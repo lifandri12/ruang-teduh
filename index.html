@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Teduh - You're Not Alone</title>
+    <meta name="description" content="Ruang aman untuk berbagi, didengar, dan menemukan solusi bersama konselor profesional">
+    <meta name="keywords" content="kesehatan mental, konselor, ruang aman, berbagi cerita, dukungan psikologis">
+    <meta name="author" content="Ruang Teduh">
+    
+    <!-- Open Graph tags untuk media sosial -->
+    <meta property="og:title" content="Ruang Teduh - You're Not Alone">
+    <meta property="og:description" content="Ruang aman untuk berbagi, didengar, dan menemukan solusi bersama konselor profesional">
+    <meta property="og:image" content="https://yourwebsite.com/assets/images/Ruangteduh.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ruang Teduh - You're Not Alone">
+    <meta name="twitter:description" content="Ruang aman untuk berbagi, didengar, dan menemukan solusi bersama konselor profesional">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/images/Ruangteduh.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#1e3a8a">
+    
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" href="assets/images/Ruangteduh.jpg">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    <link rel="preload" href="assets/images/Ruangteduh.jpg" as="image">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen">
+    <!-- Navbar -->
+    <nav class="gradient-bg shadow-xl sticky top-0 z-50 backdrop-blur-lg bg-opacity-95">
+        <div class="container mx-auto px-4 py-3 md:py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 md:space-x-3 logo-animation logo-container">
+                    <img src="assets/images/Ruangteduh.jpg" alt="Ruang Teduh Logo" class="w-10 h-10 md:w-16 md:h-16 rounded-full object-cover shadow-lg border-2 border-red-400">
+                    <div>
+                        <h1 class="text-lg md:text-2xl font-bold">Ruang Teduh</h1>
+                        <p class="text-xs text-gray-300 hidden md:block">You're Not Alone</p>
+                    </div>
+                </div>
+                
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="#konselor" class="nav-link text-white hover:text-red-400 transition-colors">Konselor</a>
+                    <a href="#tim" class="nav-link text-white hover:text-red-400 transition-colors">Tim</a>
+                    <a href="#komentar" class="nav-link text-white hover:text-red-400 transition-colors">Komentar</a>
+                    <a href="#tentang" class="nav-link text-white hover:text-red-400 transition-colors">Tentang</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2" aria-label="Buka menu navigasi">
+                    <i class="fas fa-bars text-xl md:text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#konselor" class="block py-2 text-white hover:text-red-400 transition-colors">Konselor</a>
+                <a href="#tim" class="block py-2 text-white hover:text-red-400 transition-colors">Tim</a>
+                <a href="#komentar" class="block py-2 text-white hover:text-red-400 transition-colors">Komentar</a>
+                <a href="#tentang" class="block py-2 text-white hover:text-red-400 transition-colors">Tentang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-12 md:py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Temukan <span class="text-red-400">Ketenangan</span> di Setiap Cerita
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
+                Ruang aman untuk berbagi, didengar, dan menemukan solusi bersama konselor profesional yang siap mendampingimu.
+            </p>
+        </div>
+    </section>
+
+    <!-- Konselor Section -->
+    <section id="konselor" class="py-12 md:py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+                <i class="fas fa-users text-red-400 mr-3"></i>
+                Tim Konselor Kami
+            </h2>
+            
+            <div id="counselorGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 md:gap-6">
+                <!-- Counselor cards will be generated by dedek JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tim Section -->
+    <section id="tim" class="py-12 md:py-16 px-4 bg-slate-800">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+                <i class="fas fa-users text-red-400 mr-3"></i>
+                Tim Kami
+            </h2>
+            
+            <div id="teamGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Team photos will be make by dedek JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Komentar Section -->
+    <section id="komentar" class="py-12 md:py-16 px-4 bg-slate-800">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+                <i class="fas fa-comments text-red-400 mr-3"></i>
+                Ruang Berbagi
+            </h2>
+            
+            <!-- Comment Form -->
+            <div class="bg-slate-700 rounded-xl p-4 md:p-6 mb-8">
+                <form id="commentForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nama</label>
+                        <input type="text" id="commentName" required 
+                               class="w-full px-4 py-2 bg-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+                               placeholder="Masukkan nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Pesan</label>
+                        <textarea id="commentMessage" required rows="4"
+                                  class="w-full px-4 py-2 bg-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 resize-none"
+                                  placeholder="Bagikan cerita atau pesan Anda..."></textarea>
+                    </div>
+                    <button type="submit" 
+                            class="w-full bg-red-500 hover:bg-red-600 py-3 rounded-lg transition-all transform hover:scale-105 font-medium">
+                        <i class="fas fa-paper-plane mr-2"></i>Kirim Komentar
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Comments Display -->
+            <div id="commentsContainer" class="space-y-4">
+                <!-- Comments will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="py-12 md:py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
+                <i class="fas fa-info-circle text-red-400 mr-3"></i>
+                Tentang Ruang Teduh
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div class="bg-slate-800 rounded-xl p-4 md:p-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 text-red-400">Misi Kami</h3>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Menyediakan ruang aman dan nyaman bagi siapa saja yang butuh teman curhat. 
+                        Kami percaya setiap cerita berharga dan setiap orang berhak didengar tanpa penilaian.
+                    </p>
+                </div>
+                
+                <div class="bg-slate-800 rounded-xl p-4 md:p-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 text-red-400">Visi Kami</h3>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Menjadi platform terdepan untuk kesehatan mental di Indonesia, 
+                        menghilangkan stigma dan membuat bantuan psikologis mudah diakses.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-slate-800 rounded-xl p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-semibold mb-4 text-red-400">Mengapa Memilih Kami?</h3>
+                <ul class="space-y-2 text-gray-300 text-sm md:text-base">
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Konselor profesional dan berpengalaman</li>
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Rahasia dan privasi terjamin</li>
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Akses 24/7 kapan saja Anda butuhkan</li>
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Gratis untuk sesi pertama</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="gradient-bg py-8 md:py-12 px-4 mt-12 md:mt-16">
+    <div class="container mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div>
+                <h3 class="text-lg md:text-xl font-semibold mb-4">Ruang Teduh</h3>
+                <p class="text-gray-300 text-sm md:text-base">
+                    "Setiap luka bisa disembuhkan, setiap beban bisa dibagi. 
+                    Anda tidak sendirian dalam perjalanan ini."
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="text-lg md:text-xl font-semibold mb-4">Kontak Kami</h3>
+                <div class="space-y-2 text-gray-300 text-sm md:text-base">
+                    <p><i class="fas fa-envelope mr-2"></i>ruangteduh2025@gmail.com</p>
+                    <p><i class="fas fa-phone mr-2"></i>+62 812-3456-7890</p>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>Pekanbaru, Indonesia</p>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg md:text-xl font-semibold mb-4">Ikuti Kami</h3>
+                <div class="flex space-x-4">
+                    <button onclick="window.open('https://www.instagram.com/ruaangteduuh', '_blank')" class="text-xl md:text-2xl hover:text-red-400 transition-colors bg-transparent border-none cursor-pointer" aria-label="Instagram Ruang Teduh">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+                    <button onclick="window.open('https://www.tiktok.com/@ruaang.teduh', '_blank')" class="text-xl md:text-2xl hover:text-red-400 transition-colors bg-transparent border-none cursor-pointer" aria-label="TikTok Ruang Teduh">
+                        <i class="fab fa-tiktok"></i>
+                    </button>
+                    <button onclick="window.open('https://wa.me/6281247127769', '_blank')" class="text-xl md:text-2xl hover:text-red-400 transition-colors bg-transparent border-none cursor-pointer" aria-label="WhatsApp Ruang Teduh">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-slate-700 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Ruang Teduh. All rights reserved. Made with Hearth <span class="text-red-400 pulse-red">♥</span> for you.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
