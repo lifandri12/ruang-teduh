@@ -361,3 +361,9 @@ img {
 .photo-container.adjust-down-more img {
     object-position: center 80%;
 }
+
+/* Adjust team-1 photo agar fit dengan baik */
+.team-photo-fit {
+    object-position: center center !important;
+    object-fit: cover !important;
+}

@@ -206,17 +206,22 @@ function renderTeamPhotos() {
     const teamGrid = document.getElementById('teamGrid');
     if (!teamGrid) return;
     
-    teamGrid.innerHTML = teamPhotos.map(photo => `
+    teamGrid.innerHTML = teamPhotos.map(photo => {
+        // Tambahkan class khusus untuk team-1
+        const photoClass = photo.id === 1 ? 'team-photo-fit' : '';
+        
+        return `
         <div class="bg-slate-700 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-red-900/20 hover:scale-105">
             <div class="h-64 overflow-hidden">
-                <img src="${photo.src}" alt="${photo.alt}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                <img src="${photo.src}" alt="${photo.alt}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 ${photoClass}">
             </div>
             <div class="p-6">
                 <h3 class="text-xl font-semibold mb-2">${photo.title}</h3>
                 <p class="text-gray-300">${photo.description}</p>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 // Render comments
