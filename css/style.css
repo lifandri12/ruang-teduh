@@ -362,8 +362,8 @@ img {
     object-position: center 80%;
 }
 
-/* Adjust team-1 photo agar fit dengan baik */
+/* Adjust team-1 photo agar fit dengan baik dan tampilkan wajah penuh */
 .team-photo-fit {
-    object-position: center center !important;
+    object-position: center top !important;
     object-fit: cover !important;
 }
