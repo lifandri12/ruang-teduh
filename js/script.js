@@ -129,8 +129,7 @@ function renderCounselors() {
             </div>
             <div class="p-4 flex flex-col flex-grow">
                 <h3 class="text-base md:text-lg font-semibold mb-1">${counselor.name}</h3>
-                <p class="text-xs md:text-sm text-gray-300 mb-1 font-medium flex-grow">${counselor.fullName}</p>
-                <p class="text-xs md:text-sm text-red-300 mb-4 font-medium flex-grow">📌 ${counselor.specialization}</p>
+                <p class="text-xs md:text-sm text-gray-300 mb-4 font-medium flex-grow">${counselor.fullName}</p>
                 <div class="space-y-2 mt-auto">
                     <a href="mailto:${counselor.email}" 
                        class="block bg-blue-600 hover:bg-blue-700 py-2 px-3 md:px-4 rounded-lg transition-all transform hover:scale-105 text-xs md:text-sm">
