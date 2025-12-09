@@ -352,3 +352,12 @@ img {
         height: 10rem; /* 160px */
     }
 }
+
+/* Adjust posisi foto konselor tertentu */
+.photo-container.adjust-down img {
+    object-position: center bottom;
+}
+
+.photo-container.adjust-down-more img {
+    object-position: center 80%;
+}

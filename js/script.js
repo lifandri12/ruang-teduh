@@ -69,21 +69,21 @@ const counselors = [
 const teamPhotos = [
     {
         id: 1,
-        src: "assets/images/team/barcelona.jpg",
+        src: "assets/images/team/team-1.jpg",
         alt: "Teman Cerita Ruang Teduh 1",
         title: "Partner Sharing",
         description: "Bersama-sama kami siap membantu Anda menemukan ketenangan."
     },
     {
         id: 2,
-        src: "assets/images/team/rdr-2.jpg",
+        src: "assets/images/team/team-2.jpg",
         alt: "Teman Cerita Ruang Teduh 2",
         title: "Sesi Diskusi",
         description: "Ruang diskusi hangat untuk berbagi cerita dan pengalaman."
     },
     {
         id: 3,
-        src: "assets/images/team/mike-mentzer.jpg",
+        src: "assets/images/team/team-3.jpg",
         alt: "Teman Cerita Ruang Teduh 3",
         title: "Workshop Mental Health",
         description: "Workshop rutin untuk meningkatkan kesehatan mental bersama."
@@ -117,9 +117,14 @@ function renderCounselors() {
     const grid = document.getElementById('counselorGrid');
     if (!grid) return;
     
-    grid.innerHTML = counselors.map(counselor => `
+    grid.innerHTML = counselors.map(counselor => {
+        // Tentukan apakah foto perlu di-adjust
+        const needsAdjust = ['Anne', 'Einzella', 'Difa'].includes(counselor.name);
+        const adjustClass = needsAdjust ? 'adjust-down' : '';
+        
+        return `
         <div class="counselor-card card-gradient rounded-xl overflow-hidden border border-slate-700 flex flex-col h-full">
-            <div class="photo-container w-full h-40 overflow-hidden">
+            <div class="photo-container w-full h-40 overflow-hidden ${adjustClass}">
                 <img src="${counselor.photo}" alt="${counselor.fullName}" class="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105">
             </div>
             <div class="p-4 flex flex-col flex-grow">
@@ -139,7 +144,8 @@ function renderCounselors() {
                 </div>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 // Comment form submission with validation for agreement radio button
