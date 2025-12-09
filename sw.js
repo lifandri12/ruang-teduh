@@ -8,20 +8,17 @@ const urlsToCache = [
   '/manifest.json',
   '/assets/images/counselors/anne.jpg',
   '/assets/images/counselors/beatrix.jpg',
-  '/assets/images/counselors/nazifa.jpg',
+  '/assets/images/counselors/zifa.jpg',
   '/assets/images/counselors/al.jpg',
   '/assets/images/counselors/difa.jpg',
   '/assets/images/counselors/dedek.jpg',
   '/assets/images/counselors/einzella.jpg',
-  '/assets/images/team/team-photo-1.jpg',
-  '/assets/images/team/team-photo-2.jpg',
-  '/assets/images/team/team-photo-3.jpg',  // TAMBAHKAN KOMA DI SINI
   '/assets/images/team/barcelona.jpg',
   '/assets/images/team/mike-mentzer.jpg',
-  '/assets/images/team/rdr-2.jpg'
+  '/assets/images/team/rdr-2.jpg',
 ];
 
-// Install event - cache resources
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -32,7 +29,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Fetch event - serve from cache when offline
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)

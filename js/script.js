@@ -1,4 +1,4 @@
-// Data konselor tetap (tidak bisa diubah user)
+// Data teman cerita tetap (tidak bisa diubah user)
 const counselors = [
     { 
         id: 1, 
@@ -7,7 +7,7 @@ const counselors = [
         specialization: "Anxiety & Depression", 
         email: "ruangteduh2025@gmail.com", 
         wa: "6281247127769",
-        photo: "assets/images/counselors/anne.jpg"
+        photo: "assets/images/counselors/anne-timang.jpg"
     },
     { 
         id: 2, 
@@ -43,7 +43,7 @@ const counselors = [
         specialization: "Self-Esteem", 
         email: "ruangteduh2025@gmail.com", 
         wa: "6281247127769",
-        photo: "assets/images/counselors/difa.jpg"
+        photo: "assets/images/counselors/difawarindah.jpg"
     },
     { 
         id: 6, 
@@ -61,30 +61,30 @@ const counselors = [
         specialization: "Trauma Recovery", 
         email: "ruangteduh2025@gmail.com", 
         wa: "6281247127769",
-        photo: "assets/images/counselors/einzela.jpg"
+        photo: "assets/images/counselors/enzela.jpg"
     }
 ];
 
-// Data tim
+// Data team photos
 const teamPhotos = [
     {
         id: 1,
         src: "assets/images/team/barcelona.jpg",
-        alt: "Tim Ruang Teduh 1",
-        title: "Tim Konseling",
+        alt: "Teman Cerita Ruang Teduh 1",
+        title: "Partner Sharing",
         description: "Bersama-sama kami siap membantu Anda menemukan ketenangan."
     },
     {
         id: 2,
         src: "assets/images/team/rdr-2.jpg",
-        alt: "Tim Ruang Teduh 2",
+        alt: "Teman Cerita Ruang Teduh 2",
         title: "Sesi Diskusi",
         description: "Ruang diskusi hangat untuk berbagi cerita dan pengalaman."
     },
     {
         id: 3,
         src: "assets/images/team/mike-mentzer.jpg",
-        alt: "Tim Ruang Teduh 3",
+        alt: "Teman Cerita Ruang Teduh 3",
         title: "Workshop Mental Health",
         description: "Workshop rutin untuk meningkatkan kesehatan mental bersama."
     }
@@ -111,7 +111,8 @@ function saveComments() {
         console.error("Error saving comments to localStorage:", error);
     }
 }
-// Render counselor cards (read-only)
+
+// Render teman cerita cards (read-only)
 function renderCounselors() {
     const grid = document.getElementById('counselorGrid');
     if (!grid) return;
@@ -123,7 +124,8 @@ function renderCounselors() {
             </div>
             <div class="p-4 flex flex-col flex-grow">
                 <h3 class="text-base md:text-lg font-semibold mb-1">${counselor.name}</h3>
-                <p class="text-xs md:text-sm text-gray-300 mb-4 font-medium flex-grow">${counselor.fullName}</p>
+                <p class="text-xs md:text-sm text-gray-300 mb-1 font-medium flex-grow">${counselor.fullName}</p>
+                <p class="text-xs md:text-sm text-red-300 mb-4 font-medium flex-grow">📌 ${counselor.specialization}</p>
                 <div class="space-y-2 mt-auto">
                     <a href="mailto:${counselor.email}" 
                        class="block bg-blue-600 hover:bg-blue-700 py-2 px-3 md:px-4 rounded-lg transition-all transform hover:scale-105 text-xs md:text-sm">
@@ -140,6 +142,58 @@ function renderCounselors() {
     `).join('');
 }
 
+// Comment form submission with validation for agreement radio button
+document.addEventListener('DOMContentLoaded', function() {
+    const commentForm = document.getElementById('commentForm');
+    if (commentForm) {
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('commentName');
+            const messageInput = document.getElementById('commentMessage');
+            const agreeRadios = document.getElementsByName('agreeShare');
+
+            if (nameInput && messageInput) {
+                const name = nameInput.value.trim();
+                const message = messageInput.value.trim();
+                
+                // Check if any radio button is selected
+                let agreeValue = null;
+                for (let radio of agreeRadios) {
+                    if (radio.checked) {
+                        agreeValue = radio.value;
+                        break;
+                    }
+                }
+
+                if (agreeValue === null) {
+                    alert("Kamu harus memilih apakah cerita boleh dibagikan atau tidak.");
+                    return;
+                }
+
+                if (name && message) {
+                    const newComment = {
+                        name: name,
+                        message: message,
+                        agreeShare: agreeValue,
+                        timestamp: Date.now()
+                    };
+
+                    comments.unshift(newComment);
+                    saveComments();
+                    renderComments();
+
+                    // Reset form
+                    nameInput.value = '';
+                    messageInput.value = '';
+                    agreeRadios.forEach(radio => radio.checked = false);
+
+                    showNotification('Cerita kamu berhasil dikirim! Makasih ya 😊');
+                }
+            }
+        });
+    }
+});
 
 // Render team photos
 function renderTeamPhotos() {
@@ -165,14 +219,19 @@ function renderComments() {
     if (!container) return;
     
     if (comments.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-400">Belum ada komentar. Jadilah yang pertama!</p>';
+        container.innerHTML = '<p class="text-center text-gray-400">Belum ada cerita yang dibagikan. Yuk, jadilah yang pertama! 💭</p>';
         return;
     }
     
     container.innerHTML = comments.map(comment => `
         <div class="comment-item bg-slate-700 rounded-lg p-4">
             <div class="flex justify-between items-start mb-2">
-                <h4 class="font-semibold text-red-400">${escapeHtml(comment.name)}</h4>
+                <div>
+                    <h4 class="font-semibold text-red-400">${escapeHtml(comment.name)}</h4>
+                    <p class="text-xs text-gray-400 mt-1">
+                        ${comment.agreeShare === 'yes' ? '✅ Boleh dibagikan' : '🔒 Pribadi'}
+                    </p>
+                </div>
                 <span class="text-xs text-gray-400">${formatDate(comment.timestamp)}</span>
             </div>
             <p class="text-gray-300 text-sm md:text-base">${escapeHtml(comment.message)}</p>
@@ -239,40 +298,6 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenu.classList.remove('show');
         }
     });
-    
-    // Comment form submission
-    const commentForm = document.getElementById('commentForm');
-    if (commentForm) {
-        commentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nameInput = document.getElementById('commentName');
-            const messageInput = document.getElementById('commentMessage');
-            
-            if (nameInput && messageInput) {
-                const name = nameInput.value.trim();
-                const message = messageInput.value.trim();
-                
-                if (name && message) {
-                    const newComment = {
-                        name: name,
-                        message: message,
-                        timestamp: Date.now()
-                    };
-                    
-                    comments.unshift(newComment);
-                    saveComments();
-                    renderComments();
-                    
-                    // Reset form
-                    nameInput.value = '';
-                    messageInput.value = '';
-                    
-                    showNotification('Komentar berhasil dikirim!');
-                }
-            }
-        });
-    }
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
